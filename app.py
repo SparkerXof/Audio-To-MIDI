@@ -28,7 +28,7 @@ def index():
             temp_audi_path = os.path.join(app.config['TEMP_FOLDER'], filename)
             temp_midi_path = os.path.join(app.config['TEMP_FOLDER'], filename.split('.')[0] + ".mid")
             file.save(temp_audi_path)
-            midi_file = generate_midi_from_audio(temp_audi_path, model)
+            midi_file = generate_midi_from_audio(temp_audi_path, model, float(request.form.get("onset"))/100.0, float(request.form.get("frame"))/100.0)
             midi_file.write(temp_midi_path)
             return send_file(temp_midi_path)
         else:

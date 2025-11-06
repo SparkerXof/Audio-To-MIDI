@@ -8,10 +8,18 @@
     <p>This is Audio-to-MIDI generator based on Basic Pitch model by Spotify</p>
     <p>Upload .mp3/.ogg/.wav/.flac/.m4a audio file and press "Generate!" to convert it into MIDI file.</p>
     <form action="/" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
+        <div>
             <label for="formFile" class="form-label">Audio file:</label>
             <input class="form-control" type="file" id="formFile" name="audioFile">
-        </div>  
+        </div>
+        <div>
+            <label for="formOnset" class="form-label">Onsets Threshold</label>
+            <input class="form-control" type="range" min="0" max="100" value="30" id="formOnset" name="onset">
+        </div>
+        <div>
+            <label for="formFrame" class="form-label">Frames Threshold</label>
+            <input class="form-control" type="range" min="0" max="100" value="50" id="formFrame" name="frame">
+        </div>
         <button type="submit" class="btn">Generate!</button>
     </form>
     <p class="error">{{ error }}</p>
